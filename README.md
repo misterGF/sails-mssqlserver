@@ -15,8 +15,12 @@ Strict adherence to an adapter specification enables the (re)use of built-in gen
 
 ### Running the tests
 
+Add test database configuration in ./test/integration/runner.js
+>npm install
+>npm test
+
 The exposed interfaces are generally passing unit tests.  There are few exceptions resulting from the TODOs below:
->>TODO: Associations suite is complaining about "keyAt" although this same problem exists when running the unit tests in sails-mysqlv.10.0-rc7
+>>TODO: Associations suite is complaining about "keyAt" although this same problem exists when running the unit tests in sails-mysqlv.10.0-rc7.  This is causing database tables to not be cleaned up.  Subsequent test runs will need to have these tables dropped before testing again.
 
 
 
