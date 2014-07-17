@@ -1,28 +1,48 @@
 {
   "name": "sails-mssql",
-  "version": "0.0.1",
-  "description": "Microsoft SQL Server adapter for Sails.js",
+  "version": "0.10.0",
+  "description": "sails-mssql adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
-    "test": "echo \"Adapter should be tested using Sails.js core.\" && exit 1"
+    "test": "node test/integration/runner -R spec -b"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/swelham/sails-mssql.git"
-  },
+  "repository": {"type":"git","url":"git://github.com/jaredfromsubway/sails-mssql.git"},
   "keywords": [
-    "orm",
-    "waterline",
+    "sails-mssql",
+    "adapter",
     "sails",
-    "sailsjs",
-    "sails.js"
+    "waterline",
+    "sails.js",
+  	"mssql",
+  	"sqlserver",
+    "plugin"
   ],
-  "author": "Stuart Welham",
+  "author": "jaredfromsubway",
+  "contributors":[
+	"balderdashy",
+	"Stuart Welham",
+	"wxactly"
+  ],
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "underscore": "~1.5.2",
-    "underscore.string": "~2.3.3",
-    "async": "~0.2.9"
+  	"underscore": "~1.5.2",
+	"underscore.string": "~2.3.3",
+	"mssql": "~1.0.2"
+  },
+  "devDependencies": {
+    "waterline-adapter-tests": "~0.10.0",
+    "mocha": "*",
+    "captains-log": "~0.11.0"
+  },
+  "waterlineAdapter": {
+    "type": "sails-mssql",
+    "interfaces": [
+		"semantic",
+		"queryable",
+		"associations"
+
+	],
+    "waterlineVersion": "~0.10.0"
   }
 }
