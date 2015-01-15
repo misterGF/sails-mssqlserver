@@ -6,29 +6,32 @@
   "scripts": {
     "test": "node test/integration/runner -R spec -b"
   },
-  "repository": {"type":"git","url":"git://github.com/jaredfromsubway/sails-mssql.git"},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jaredfromsubway/sails-mssql.git"
+  },
   "keywords": [
     "sails-mssql",
     "adapter",
     "sails",
     "waterline",
     "sails.js",
-  	"mssql",
-  	"sqlserver",
+    "mssql",
+    "sqlserver",
     "plugin"
   ],
   "author": "jaredfromsubway",
-  "contributors":[
-	"balderdashy",
-	"Stuart Welham",
-	"wxactly"
+  "contributors": [
+    "balderdashy",
+    "Stuart Welham",
+    "wxactly"
   ],
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-  	"underscore": "~1.5.2",
-	"underscore.string": "~2.3.3",
-	"mssql": "~1.0.2"
+    "lodash": "^2.4.1",
+    "mssql": "^1.3",
+    "underscore.string": "~2.3.3"
   },
   "devDependencies": {
     "waterline-adapter-tests": "~0.10.0",
@@ -38,11 +41,10 @@
   "waterlineAdapter": {
     "type": "sails-mssql",
     "interfaces": [
-		"semantic",
-		"queryable",
-		"associations"
-
-	],
+      "semantic",
+      "queryable",
+      "associations"
+    ],
     "waterlineVersion": "~0.10.0"
   }
 }
