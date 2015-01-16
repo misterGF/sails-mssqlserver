@@ -47,15 +47,19 @@ console.log();
  */
 new TestRunner({
 
+  mocha: {
+    reporter: 'spec',
+    timeout: 10000
+  },
+
     // Load the adapter module.
     adapter: Adapter,
 
     // ADD YOUR CONFIG HERE
     config: {
-      schema: true,
-      timeout: 5000,
+      timeout: 10000,
       pool: {
-        min: 0,
+        min: 1,
         max: 10,
         idleTimeout: 30000
       }
