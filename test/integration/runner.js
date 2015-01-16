@@ -66,19 +66,21 @@ new TestRunner({
 
     // ADD YOUR CONFIG HERE
     config: {
-        schema: true,
-		host: '',
-		port: 1433,
-		user: '',
-		password: '',
-		database: '',
-		timeout: 5000,
-		pool: {
-			min: 0,
-			max: 10,
-			idleTimeout: 30000
-		}
+      schema: true,
+      host: '',
+      port: 1433,
+      user: '',
+      password: '',
+      database: '',
+      timeout: 5000,
+      pool: {
+        min: 0,
+        max: 10,
+        idleTimeout: 30000
+      }
     },
+
+    failOnError: true,
 
     // The set of adapter interfaces to test against.
     // (grabbed these from this adapter's package.json file above)
