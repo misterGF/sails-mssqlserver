@@ -8,18 +8,11 @@
  * are tested. (e.g. `queryable`, `semantic`, etc.)
  */
 
-
-/**
- * Module dependencies
- */
-
 var util = require('util');
 var mocha = require('mocha');
 var log = new (require('captains-log'))();
 var TestRunner = require('waterline-adapter-tests');
 var Adapter = require('../../lib/adapter.js');
-
-
 
 // Grab targeted interfaces from this adapter's `package.json` file:
 var package = {};
@@ -37,10 +30,6 @@ catch (e) {
     );
 }
 
-
-
-
-
 log.info('Testing `' + package.name + '`, a Sails/Waterline adapter.');
 log.info('Running `waterline-adapter-tests` against ' + interfaces.length + ' interfaces...');
 log.info('( ' + interfaces.join(', ') + ' )');
@@ -48,9 +37,6 @@ console.log();
 log('Latest draft of Waterline adapter interface spec:');
 log('http://links.sailsjs.org/docs/plugins/adapters/interfaces');
 console.log();
-
-
-
 
 /**
  * Integration Test Runner
@@ -67,11 +53,6 @@ new TestRunner({
     // ADD YOUR CONFIG HERE
     config: {
       schema: true,
-      host: '',
-      port: 1433,
-      user: '',
-      password: '',
-      database: '',
       timeout: 5000,
       pool: {
         min: 0,
