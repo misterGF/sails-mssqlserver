@@ -18,16 +18,16 @@ var Adapter = require('../../lib/adapter.js');
 var package = {};
 var interfaces = [];
 try {
-    package = require('../../package.json');
-    interfaces = package['waterlineAdapter'].interfaces;
+  package = require('../../package.json');
+  interfaces = package.waterlineAdapter.interfaces;
 }
 catch (e) {
-    throw new Error(
+  throw new Error(
     '\n'+
     'Could not read supported interfaces from `waterlineAdapter.interfaces`'+'\n' +
     'in this adapter\'s `package.json` file ::' + '\n' +
     util.inspect(e)
-    );
+  );
 }
 
 log.info('Testing `' + package.name + '`, a Sails/Waterline adapter.');
@@ -49,43 +49,43 @@ new TestRunner({
 
   mocha: {
     reporter: 'spec',
-    timeout: 10000
+    timeout: 60000
   },
 
-    // Load the adapter module.
-    adapter: Adapter,
+  // Load the adapter module.
+  adapter: Adapter,
 
-    // ADD YOUR CONFIG HERE
-    config: {
-      timeout: 10000,
-      pool: {
-        min: 1,
-        max: 10,
-        idleTimeout: 30000
-      }
-    },
+  // ADD YOUR CONFIG HERE
+  config: {
+    timeout: 60000,
+    pool: {
+      min: 1,
+      max: 10,
+      idleTimeout: 30000
+    }
+  },
 
-    failOnError: true,
+  failOnError: true,
 
-    // The set of adapter interfaces to test against.
-    // (grabbed these from this adapter's package.json file above)
-    interfaces: interfaces
+  // The set of adapter interfaces to test against.
+  // (grabbed these from this adapter's package.json file above)
+  interfaces: interfaces
 
-    // Most databases implement 'semantic' and 'queryable'.
-    //
-    // As of Sails/Waterline v0.10, the 'associations' interface
-    // is also available.  If you don't implement 'associations',
-    // it will be polyfilled for you by Waterline core.  The core
-    // implementation will always be used for cross-adapter / cross-connection
-    // joins.
-    //
-    // In future versions of Sails/Waterline, 'queryable' may be also
-    // be polyfilled by core.
-    //
-    // These polyfilled implementations can usually be further optimized at the
-    // adapter level, since most databases provide optimizations for internal
-    // operations.
-    //
-    // Full interface reference:
-    // https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md
+  // Most databases implement 'semantic' and 'queryable'.
+  //
+  // As of Sails/Waterline v0.10, the 'associations' interface
+  // is also available.  If you don't implement 'associations',
+  // it will be polyfilled for you by Waterline core.  The core
+  // implementation will always be used for cross-adapter / cross-connection
+  // joins.
+  //
+  // In future versions of Sails/Waterline, 'queryable' may be also
+  // be polyfilled by core.
+  //
+  // These polyfilled implementations can usually be further optimized at the
+  // adapter level, since most databases provide optimizations for internal
+  // operations.
+  //
+  // Full interface reference:
+  // https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md
 });
