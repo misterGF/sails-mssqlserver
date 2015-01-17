@@ -1,31 +1,16 @@
-# sails-mssql
+# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' />-mssql Adapter
 
-This is a fork of swelham/sails-mssql that aims to bring sails/waterline .0.10x support to mssql.
+[![Build status][travis-image]][travis-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
 
-This module is a Waterline/Sails adapter, an early implementation of a rapidly-developing, tool-agnostic data standard.  Its goal is to provide a set of declarative interfaces, conventions, and best-practices for integrating with all sorts of data sources.  Not just databases-- external APIs, proprietary web services, or even hardware.
+TODO
 
-Strict adherence to an adapter specification enables the (re)use of built-in generic test suites, standardized documentation, reasonable expectations around the API for your users, and overall, a more pleasant development experience for everyone.
+## License
+MIT
 
-
-### Interfaces
-> queryable
-> semantic
-> associations
->TODO: migrations
-
-### Running the tests
-
-Add test database configuration in ./test/integration/runner.js
->npm install
->npm test
-
-The exposed interfaces are generally passing unit tests.  There are few exceptions resulting from the TODOs below:
->>TODO: Associations suite is complaining about "keyAt" although this same problem exists when running the unit tests in sails-mysqlv.10.0-rc7.  This is causing database tables to not be cleaned up.  Subsequent test runs will need to have these tables dropped before testing again.
-
-
-
->>TODO: Support "skip" for >SqlServer2012 via OFFSET.  Currently supported with an inner query.
-
-
-
-
+[sails-logo]: http://cdn.tjw.io/images/sails-logo.png
+[sails-url]: https://sailsjs.org
+[ci-image]: https://circleci.com/gh/cnect/sails-mssql.svg?style=shield
+[ci-url]: https://circleci.com/gh/cnect/sails-mssql
+[daviddm-image]: http://img.shields.io/david/cnect/sails-mssql.svg?style=flat
+[daviddm-url]: https://david-dm.org/cnect/sails-mssql
