@@ -10,7 +10,7 @@ MIT
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
-[ci-image]: https://circleci.com/gh/cnect/sails-mssql.svg?style=shield
+[ci-image]: https://img.shields.io/circleci/project/cnect/sails-mssql.svg?style=flat-square
 [ci-url]: https://circleci.com/gh/cnect/sails-mssql
-[daviddm-image]: http://img.shields.io/david/cnect/sails-mssql.svg?style=flat
+[daviddm-image]: http://img.shields.io/david/cnect/sails-mssql.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/cnect/sails-mssql
