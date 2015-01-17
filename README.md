@@ -1,4 +1,6 @@
-# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' />-mssql Adapter
+# <img src="http://cdn.tjw.io/images/sails-logo.png" height='48px' /> + <img src="http://cdn.tjw.io/images/sqlserver_logo.png" height='44px' />
+
+## sails-sqlserver Adapter
 
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
