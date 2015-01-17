@@ -49,7 +49,7 @@ new TestRunner({
 
   mocha: {
     reporter: 'spec',
-    timeout: 60000
+    timeout: 120000
   },
 
   // Load the adapter module.
@@ -57,11 +57,11 @@ new TestRunner({
 
   // ADD YOUR CONFIG HERE
   config: {
-    timeout: 60000,
+    timeout: 120000,
     pool: {
       min: 1,
       max: 10,
-      idleTimeout: 30000
+      idleTimeout: 60000
     }
   },
 
