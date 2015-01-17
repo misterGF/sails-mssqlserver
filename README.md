@@ -1,6 +1,6 @@
 # <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' />-mssql Adapter
 
-[![Build status][travis-image]][travis-url]
+[![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
 TODO
