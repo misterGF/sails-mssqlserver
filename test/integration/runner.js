@@ -50,25 +50,8 @@ var connection = new mssql.Connection({
       encrypt: true
     }
   }, function (err) {
-    new mssql.Request(connection).query([
-      'IF OBJECT_ID(\'dbo.apartmentTable\', \'U\') IS NOT NULL DROP TABLE apartmentTable',
-      'IF OBJECT_ID(\'dbo.customer_manyTable\', \'U\') IS NOT NULL DROP TABLE customer_manyTable',
-      'IF OBJECT_ID(\'dbo.customerbelongsTable\', \'U\') IS NOT NULL DROP TABLE customerbelongsTable',
-      'IF OBJECT_ID(\'dbo.customerTable\', \'U\') IS NOT NULL DROP TABLE customerTable',
-      'IF OBJECT_ID(\'dbo.driver_taxis_taxi_drivers\', \'U\') IS NOT NULL DROP TABLE driver_taxis_taxi_drivers',
-      'IF OBJECT_ID(\'dbo.driverTable\', \'U\') IS NOT NULL DROP TABLE driverTable',
-      'IF OBJECT_ID(\'dbo.payment_manyTable\', \'U\') IS NOT NULL DROP TABLE payment_manyTable',
-      'IF OBJECT_ID(\'dbo.paymentbelongsTable\', \'U\') IS NOT NULL DROP TABLE paymentbelongsTable',
-      'IF OBJECT_ID(\'dbo.paymentTable\', \'U\') IS NOT NULL DROP TABLE paymentTable',
-      'IF OBJECT_ID(\'dbo.profileTable\', \'U\') IS NOT NULL DROP TABLE profileTable',
-      'IF OBJECT_ID(\'dbo.stadiumTable\', \'U\') IS NOT NULL DROP TABLE stadiumTable',
-      'IF OBJECT_ID(\'dbo.taxiTable\', \'U\') IS NOT NULL DROP TABLE taxiTable',
-      'IF OBJECT_ID(\'dbo.teamTable\', \'U\') IS NOT NULL DROP TABLE teamTable',
-      'IF OBJECT_ID(\'dbo.user_resourceTable\', \'U\') IS NOT NULL DROP TABLE user_resourceTable',
-      'IF OBJECT_ID(\'dbo.userTable\', \'U\') IS NOT NULL DROP TABLE userTable',
-      'IF OBJECT_ID(\'dbo.userTable2\', \'U\') IS NOT NULL DROP TABLE userTable2',
-      'IF OBJECT_ID(\'dbo.venueTable\', \'U\') IS NOT NULL DROP TABLE venueTable'
-    ].join(';'), function (err, results) {
+    if (err) throw err;
+    new mssql.Request(connection).query("select 'drop table ' + name from sys.objects where type = 'U';", function (err, results) {
       if (err) throw err;
 
       console.log('Running tests...');
