@@ -20,11 +20,12 @@
     "sqlserver",
     "plugin"
   ],
-  "author": "jaredfromsubway",
+  "author": "Travis Webb <tjwebb@cnectdata.com>",
   "contributors": [
     "balderdashy",
     "Stuart Welham",
-    "wxactly"
+    "wxactly",
+    "tjwebb"
   ],
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -34,6 +35,12 @@
     "underscore.string": "^3.0.0",
     "waterline-cursor": "0.0.5"
   },
+  "bundledDependencies": [
+    "lodash",
+    "mssql",
+    "underscore.string",
+    "waterline-cursor"
+  ],
   "devDependencies": {
     "waterline-adapter-tests": "git://github.com/tjwebb/waterline-adapter-tests",
     "mocha": "*",
