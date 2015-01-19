@@ -46,9 +46,6 @@ var connection = new mssql.Connection({
     password: process.env.MSSQL_PASSWORD,
     server: process.env.MSSQL_HOST,
     database: process.env.MSSQL_DATABASE,
-    options: {
-      encrypt: true
-    }
   }, function (err) {
     if (err) throw err;
     new mssql.Request(connection).query([
@@ -78,7 +75,7 @@ var connection = new mssql.Connection({
 
         mocha: {
           reporter: 'spec',
-          timeout: 120000
+          timeout: 300 * 1000
         },
 
         // Load the adapter module.
@@ -86,9 +83,9 @@ var connection = new mssql.Connection({
 
         // ADD YOUR CONFIG HERE
         config: {
-          timeout: 120000,
+          timeout: 300 * 1000,
           pool: {
-            max: 180
+            max: 100
           }
         },
 
