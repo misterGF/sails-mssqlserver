@@ -40,7 +40,7 @@ console.log();
 
 var mssql = require('mssql');
 
-console.log('Preparing database...');
+console.log('Dropping any existing tables...');
 var connection = new mssql.Connection({
     user: process.env.MSSQL_USER,
     password: process.env.MSSQL_PASSWORD,
@@ -48,6 +48,7 @@ var connection = new mssql.Connection({
     database: process.env.MSSQL_DATABASE,
   }, function (err) {
     if (err) throw err;
+
     new mssql.Request(connection).query([
       'while(exists(select 1 from INFORMATION_SCHEMA.TABLE_CONSTRAINTS where CONSTRAINT_TYPE=\'FOREIGN KEY\'))',
       'begin',
@@ -68,8 +69,7 @@ var connection = new mssql.Connection({
       'end'
     ].join(' '), function (err, results) {
       if (err) throw err;
-
-      console.log('Running tests...');
+      console.log('Starting test runner...');
       
       new TestRunner({
 
