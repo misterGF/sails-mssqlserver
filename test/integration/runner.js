@@ -51,7 +51,7 @@ var connection = new mssql.Connection({
     }
   }, function (err) {
     if (err) throw err;
-    new mssql.Request(connection).query("select 'drop table ' + name from sys.objects where type = 'U';", function (err, results) {
+    new mssql.Request(connection).query('EXEC sp_MSForEachTable \'DROP TABLE ?\'', function (err, results) {
       if (err) throw err;
 
       console.log('Running tests...');

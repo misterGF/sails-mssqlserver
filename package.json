@@ -42,6 +42,8 @@
   "waterlineAdapter": {
     "type": "sails-mssql",
     "interfaces": [
+      "semantic",
+      "queryable",
       "associations"
     ],
     "waterlineVersion": "~0.10.0"
