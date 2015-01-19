@@ -69,7 +69,6 @@ var connection = new mssql.Connection({
         // ADD YOUR CONFIG HERE
         config: {
           timeout: 120000,
-          migrate: 'drop',
           pool: {
             max: 180
           }
