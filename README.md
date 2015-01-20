@@ -5,7 +5,7 @@
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
-A Waterline adapter for Microsoft SQL Server. Tested on SQL Server 2012 and 2014,
+Official Waterline adapter for Microsoft SQL Server. Tested on SQL Server 2012 and 2014,
 but should support any SQL Server 2005 and newer. CI tests are run against SQL
 Server Express. Published by [c*nect](http://www.cnectdata.com/).
 
