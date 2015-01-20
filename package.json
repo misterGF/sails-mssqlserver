@@ -1,24 +1,27 @@
 {
-  "name": "sails-mssql",
+  "name": "sails-sqlserver-adapter",
   "version": "0.10.0",
-  "description": "sails-mssql adapter for Sails / Waterline",
+  "description": "Official SQL Server Adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
     "test": "node test/integration/runner -R spec -b"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredfromsubway/sails-mssql.git"
+    "url": "git://github.com/cnect/sails-mssql.git"
   },
   "keywords": [
-    "sails-mssql",
-    "adapter",
+    "cnect",
     "sails",
+    "sails-mssql",
+    "sails-sqlserver",
+    "sql server",
+    "sqlserver",
+    "microsoft",
+    "adapter",
     "waterline",
     "sails.js",
-    "mssql",
-    "sqlserver",
-    "plugin"
+    "mssql"
   ],
   "author": "Travis Webb <tjwebb@cnectdata.com>",
   "contributors": [
@@ -28,7 +31,6 @@
     "tjwebb"
   ],
   "license": "MIT",
-  "readmeFilename": "README.md",
   "dependencies": {
     "lodash": "^2.4.1",
     "mssql": "^1.3",
