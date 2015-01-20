@@ -28,6 +28,7 @@
     "balderdashy",
     "Stuart Welham",
     "wxactly",
+    "Seich",
     "tjwebb"
   ],
   "license": "MIT",
@@ -49,7 +50,7 @@
     "captains-log": "~0.11.0"
   },
   "waterlineAdapter": {
-    "type": "sails-mssql",
+    "type": "sails-sqlserver-adapter",
     "interfaces": [
       "semantic",
       "queryable",
