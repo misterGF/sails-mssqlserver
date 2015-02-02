@@ -1,5 +1,5 @@
 {
-  "name": "sails-sqlserver-adapter",
+  "name": "sails-sqlserver",
   "version": "0.10.2",
   "description": "Official SQL Server Adapter for Sails / Waterline",
   "main": "lib/adapter.js",
