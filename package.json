@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/cnect/sails-mssql.git"
+    "url": "git://github.com/cnect/sails-sqlserver.git"
   },
   "keywords": [
     "cnect",
@@ -21,7 +21,8 @@
     "adapter",
     "waterline",
     "sails.js",
-    "mssql"
+    "mssql",
+    "sqlserver"
   ],
   "author": "Travis Webb <tjwebb@cnectdata.com>",
   "contributors": [
@@ -29,7 +30,8 @@
     "Stuart Welham",
     "wxactly",
     "Seich",
-    "tjwebb"
+    "tjwebb",
+    "jaredfromsubway"
   ],
   "license": "MIT",
   "dependencies": {

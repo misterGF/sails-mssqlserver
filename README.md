@@ -1,6 +1,6 @@
 ## <a href="http://www.cnectdata.com/"><img src="http://www.cnectdata.com/wp-content/uploads/2014/04/cnect-logo-200x57-20141118.png" height='32px' /></a> All-in-One Data Management Stack
 
-### sails-sqlserver-adapter 
+### sails-sqlserver
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
@@ -11,7 +11,7 @@ Server Express. Published by [c*nect](http://www.cnectdata.com/).
 
 ### 1. Install
 ```sh
-$ npm install sails-sqlserver-adapter --save
+$ npm install sails-sqlserver --save
 ```
 
 ### 2. Configure
@@ -27,7 +27,7 @@ $ npm install sails-sqlserver-adapter --save
 ```js
 {
   sqlserver: {
-    adapter: 'sails-sqlserver-adapter',
+    adapter: 'sails-sqlserver',
     user: 'cnect',
     password: 'pass',
     host: 'abc123.database.windows.net' // azure database
@@ -42,11 +42,11 @@ $ npm install sails-sqlserver-adapter --save
 ## License
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/sails-sqlserver-adapter.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/sails-sqlserver-adapter
+[npm-image]: https://img.shields.io/npm/v/sails-sqlserver.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/sails-sqlserver
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
-[ci-image]: https://img.shields.io/circleci/project/cnect/sails-sqlserver-adapter.svg?style=flat-square
-[ci-url]: https://circleci.com/gh/cnect/sails-sqlserver-adapter
-[daviddm-image]: http://img.shields.io/david/cnect/sails-sqlserver-adapter.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/cnect/sails-sqlserver-adapter
+[ci-image]: https://img.shields.io/circleci/project/cnect/sails-sqlserver.svg?style=flat-square
+[ci-url]: https://circleci.com/gh/cnect/sails-sqlserver
+[daviddm-image]: http://img.shields.io/david/cnect/sails-sqlserver.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/cnect/sails-sqlserver
