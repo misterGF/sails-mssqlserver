@@ -46,7 +46,7 @@ MIT
 [npm-url]: https://npmjs.org/package/sails-sqlserver
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
-[ci-image]: https://img.shields.io/circleci/project/cnect/sails-sqlserver.svg?style=flat-square
+[ci-image]: https://img.shields.io/circleci/project/cnect/sails-sqlserver/master.svg?style=flat-square
 [ci-url]: https://circleci.com/gh/cnect/sails-sqlserver
 [daviddm-image]: http://img.shields.io/david/cnect/sails-sqlserver.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/cnect/sails-sqlserver
