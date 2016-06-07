@@ -47,7 +47,13 @@ var connection = new mssql.Connection({
     server: process.env.MSSQL_HOST,
     database: process.env.MSSQL_DATABASE,
   }, function (err) {
-    if (err) throw err;
+    if(err && err.name.indexOf('ConnectionError') == 0) {
+      console.log('Connection to DB not implemented yet.')
+      return
+    }
+    else if (err) {
+      throw err
+    }
 
     new mssql.Request(connection).query([
       'while(exists(select 1 from INFORMATION_SCHEMA.TABLE_CONSTRAINTS where CONSTRAINT_TYPE=\'FOREIGN KEY\'))',
@@ -70,7 +76,7 @@ var connection = new mssql.Connection({
     ].join(' '), function (err, results) {
       if (err) throw err;
       console.log('Starting test runner...');
-      
+
       new TestRunner({
 
         mocha: {
