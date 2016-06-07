@@ -74,8 +74,8 @@ MIT
 [npm-url]: https://npmjs.org/package/sails-mssqlserver
 
 
-[ci-image]: https://img.shields.io/circleci/project/misterGF/sails-MSsqlserver/master.svg?style=flat-square
-[ci-url]: https://circleci.com/gh/misterGF/sails-MSsqlserver
+[ci-image]: https://img.shields.io/circleci/project/misterGF/sails-mssqlserver/master.svg?style=flat-square
+[ci-url]: https://circleci.com/gh/misterGF/sails-mssqlserver
 
 [daviddm-image]: http://img.shields.io/david/misterGF/sails-mssqlserver.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/misterGF/sails-mssqlserver
