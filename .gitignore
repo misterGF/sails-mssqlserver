@@ -8,3 +8,5 @@ ssl
 .idea
 nbproject
 npm-debug.log
+.env
+.npmignore
