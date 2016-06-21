@@ -1,6 +1,6 @@
 {
   "name": "sails-mssqlserver",
-  "version": "0.13.0",
+  "version": "0.12.0",
   "description": "SQL Server Adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
@@ -25,32 +25,43 @@
     "sqlserver",
     "misterGF"
   ],
-  "author": "Travis Webb <tjwebb@cnectdata.com>",
+  "author": {
+    "name": "Travis Webb",
+    "email": "tjwebb@cnectdata.com"
+  },
   "contributors": [
-    "balderdashy",
-    "Stuart Welham",
-    "wxactly",
-    "Seich",
-    "tjwebb",
-    "jaredfromsubway"
+    {
+      "name": "balderdashy"
+    },
+    {
+      "name": "Stuart Welham"
+    },
+    {
+      "name": "wxactly"
+    },
+    {
+      "name": "Seich"
+    },
+    {
+      "name": "tjwebb"
+    },
+    {
+      "name": "jaredfromsubway"
+    }
   ],
   "license": "MIT",
   "dependencies": {
     "captains-log": "^0.11.11",
-    "lodash": "^4.13.1",
-    "mssql": "^3.3.0",
+    "lodash": "^3.8.0",
+    "mssql": "^2.1.3",
     "underscore.string": "^3.0.0",
-    "waterline-cursor": "0.0.7"
+    "waterline-cursor": "0.0.5"
   },
-  "bundledDependencies": [
-    "lodash",
-    "mssql",
-    "underscore.string",
-    "waterline-cursor"
-  ],
   "devDependencies": {
-    "waterline-adapter-tests": "git://github.com/tjwebb/waterline-adapter-tests",
-    "mocha": "*"
+    "bunyan": "^1.8.1",
+    "dotenv": "^2.0.0",
+    "mocha": "*",
+    "waterline-adapter-tests": "git://github.com/tjwebb/waterline-adapter-tests.git"
   },
   "waterlineAdapter": {
     "type": "sails-mssqlserver",
@@ -60,5 +71,42 @@
       "associations"
     ],
     "waterlineVersion": "~0.10.0"
-  }
+  },
+  "gitHead": "7e3d7e68057792327fc51d5dd4d9500d718b4d6a",
+  "bugs": {
+    "url": "https://github.com/misterGF/sails-mssqlserver/issues"
+  },
+  "homepage": "https://github.com/misterGF/sails-mssqlserver#readme",
+  "bundleDependencies": [
+    "lodash",
+    "mssql",
+    "underscore.string",
+    "waterline-cursor"
+  ],
+  "_id": "sails-mssqlserver@0.12.0",
+  "_shasum": "409ce5ffaae5c0da06cf25586f08cf84276b4de3",
+  "_from": "sails-mssqlserver@>=0.12.0 <0.13.0",
+  "_npmVersion": "2.14.12",
+  "_nodeVersion": "4.2.6",
+  "_npmUser": {
+    "name": "mistergf",
+    "email": "gfgilly@gmail.com"
+  },
+  "dist": {
+    "shasum": "409ce5ffaae5c0da06cf25586f08cf84276b4de3",
+    "tarball": "https://registry.npmjs.org/sails-mssqlserver/-/sails-mssqlserver-0.12.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "mistergf",
+      "email": "gfgilly@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/sails-mssqlserver-0.12.0.tgz_1465328264564_0.09408132312819362"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/sails-mssqlserver/-/sails-mssqlserver-0.12.0.tgz",
+  "readme": "ERROR: No README data found!"
 }
