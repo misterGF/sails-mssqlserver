@@ -10,3 +10,4 @@ nbproject
 npm-debug.log
 .env
 .npmignore
+build.log

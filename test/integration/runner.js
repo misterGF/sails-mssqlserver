@@ -13,7 +13,7 @@ var mocha = require('mocha');
 var log = new(require('captains-log'))();
 var TestRunner = require('waterline-adapter-tests');
 var Adapter = require('../../lib/adapter.js');
-require('dotenv').config();
+
 // Grab targeted interfaces from this adapter's `package.json` file:
 var package = {};
 var interfaces = [];
@@ -41,10 +41,11 @@ var mssql = require('mssql');
 
 console.log('Dropping any existing tables...');
 var connection = new mssql.Connection({
-  user: process.env.MSSQL_USER,
-  password: process.env.MSSQL_PASSWORD,
-  server: process.env.MSSQL_HOST,
-  database: process.env.MSSQL_DATABASE,
+  user: 'sa',
+  password: 'Password12!',
+  server: 'localhost\\SQL2014',
+  database: 'sails-mssqlserver',
+  port: 1434
 }, function (err) {
   if(err && err.name.indexOf('ConnectionError') == 0) {
     console.log('Connection to DB not implemented yet.', err)
@@ -91,10 +92,11 @@ var connection = new mssql.Connection({
         pool: {
           max: 100
         },
-        user: process.env.MSSQL_USER,
-        password: process.env.MSSQL_PASSWORD,
-        server: process.env.MSSQL_HOST,
-        database: process.env.MSSQL_DATABASE
+        user: 'sa',
+        password: 'Password12!',
+        server: 'localhost\\SQL2014',
+        database: 'sails-mssqlserver',
+        port: 1434
       },
 
       failOnError: true,
