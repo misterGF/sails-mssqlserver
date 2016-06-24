@@ -43,7 +43,7 @@ console.log('Dropping any existing tables...');
 var connection = new mssql.Connection({
   user: 'sa',
   password: 'Password12!',
-  server: '(local)\\SQL2014',
+  server: '(localhost)\\SQL2014',
   database: 'sails-mssqlserver',
   port: 1434
 }, function (err) {
@@ -94,7 +94,7 @@ var connection = new mssql.Connection({
         },
         user: 'sa',
         password: 'Password12!',
-        server: '(local)\\SQL2014',
+        server: '(localhost)\\SQL2014',
         database: 'sails-mssqlserver',
         port: 1434
       },
