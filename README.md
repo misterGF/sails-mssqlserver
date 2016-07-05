@@ -70,6 +70,11 @@ For further examples check out Sail's [Waterline ORM page](http://sailsjs.org/do
 ## License
 MIT
 
+## Credits
+
+This project was originally forked from [cnect/sails-sqlserver](https://github.com/cnect/sails-sqlserver) in 2016.  That repo was itself forked from [swelham/sails-mssql](https://github.com/swelham/sails-mssql) in early 2015. The code in both of those repositories is also available under the MIT license.
+
+
 [npm-image]: https://img.shields.io/npm/v/sails-mssqlserver.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/sails-mssqlserver
 
