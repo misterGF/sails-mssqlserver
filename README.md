@@ -35,7 +35,7 @@ $ npm install sails-mssqlserver --save
     adapter: 'sails-mssqlserver',
     user: 'sa',
     password: 'secureP@ssword',
-    host: 'abc123.database.windows.net' // azure database
+    host: 'abc123.database.windows.net', // azure database
     database: 'mydb',
     options: {
       encrypt: true   // use this for Azure databases
