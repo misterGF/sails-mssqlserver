@@ -1,6 +1,6 @@
 {
   "name": "sails-mssqlserver",
-  "version": "0.14.2",
+  "version": "0.14.3",
   "description": "SQL Server Adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
