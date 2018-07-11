@@ -51,16 +51,17 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "captains-log": "^0.11.11",
-    "lodash": "^3.8.0",
-    "mssql": "^3.3.0",
-    "underscore.string": "^3.0.0",
-    "waterline-cursor": "0.0.5",
-    "bunyan": "^1.8.1"
+    "bunyan": "1.8.12",
+    "captains-log": "2.0.0",
+    "eslint": "^4.16.0",
+    "lodash": "4.17.4",
+    "mssql": "4.1.0",
+    "underscore.string": "3.3.4",
+    "waterline-cursor": "0.0.7"
   },
   "devDependencies": {
-    "dotenv": "^2.0.0",
-    "mocha": "*",
+    "dotenv": "4.0.0",
+    "mocha": "5.0.0",
     "waterline-adapter-tests": "git://github.com/tjwebb/waterline-adapter-tests.git"
   },
   "waterlineAdapter": {
