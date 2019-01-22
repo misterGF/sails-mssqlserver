@@ -44,8 +44,9 @@ console.log('Dropping any existing tables...');
 const pool = new mssql.ConnectionPool({
   user: 'sa',
   password: 'Password12!',
-  server: 'localhost\\DEV',
+  server: 'localhost\\SQL2017',
   database: 'sails-mssqlserver',
+  port: 1433,
   connectionTimeout: 30000,
   pool: {
     max: 10,
