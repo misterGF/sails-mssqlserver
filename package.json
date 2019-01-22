@@ -1,6 +1,6 @@
 {
   "name": "sails-mssqlserver",
-  "version": "0.14.3",
+  "version": "0.15.0",
   "description": "SQL Server Adapter for Sails / Waterline",
   "main": "lib/adapter.js",
   "scripts": {
@@ -51,16 +51,16 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "captains-log": "^0.11.11",
-    "lodash": "^3.8.0",
-    "mssql": "^3.3.0",
-    "underscore.string": "^3.0.0",
+    "captains-log": "2.0.1",
+    "lodash": "4.17.11",
+    "mssql": "4.3.0",
+    "underscore.string": "3.3.5",
     "waterline-cursor": "0.0.5",
-    "bunyan": "^1.8.1"
+    "bunyan": "1.8.12"
   },
   "devDependencies": {
-    "dotenv": "^2.0.0",
-    "mocha": "*",
+    "dotenv": "6.2.0",
+    "mocha": "5.2.0",
     "waterline-adapter-tests": "git://github.com/tjwebb/waterline-adapter-tests.git"
   },
   "waterlineAdapter": {

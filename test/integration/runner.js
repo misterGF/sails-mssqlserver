@@ -40,17 +40,26 @@ console.log();
 var mssql = require('mssql');
 
 console.log('Dropping any existing tables...');
-var connection = new mssql.Connection({
+
+const pool = new mssql.ConnectionPool({
   user: 'sa',
   password: 'Password12!',
-  server: 'localhost\\SQL2014',
+  server: 'localhost\\DEV',
   database: 'sails-mssqlserver',
-  port: 1434
-}, function (err) {
-  if(err && err.name.indexOf('ConnectionError') == 0) {
+  connectionTimeout: 30000,
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000
+  }
+})
+
+pool.connect(err => {
+  if (err && err.name.indexOf('ConnectionError') == 0) {
     console.log('Connection to DB not implemented yet.', err)
     return
-  } else if(err) {
+  } 
+  else if (err) {
     throw err
   }
 
@@ -124,7 +133,7 @@ var connection = new mssql.Connection({
       // https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md
     });
   });
-});
+})
 
 /**
  * Integration Test Runner
