@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "dotenv": "6.2.0",
-    "mocha": "5.2.0",
+    "mocha": "1.12.1",
     "waterline-adapter-tests": "git://github.com/tjwebb/waterline-adapter-tests.git"
   },
   "waterlineAdapter": {

@@ -8,132 +8,146 @@
  * are tested. (e.g. `queryable`, `semantic`, etc.)
  */
 
-var util = require('util');
-var mocha = require('mocha');
-var log = new(require('captains-log'))();
-var TestRunner = require('waterline-adapter-tests');
-var Adapter = require('../../lib/adapter.js');
+var util = require('util')
+var mocha = require('mocha')
+var log = new (require('captains-log'))()
+var TestRunner = require('waterline-adapter-tests')
+var Adapter = require('../../lib/adapter.js')
 
 // Grab targeted interfaces from this adapter's `package.json` file:
-var package = {};
-var interfaces = [];
+var package = {}
+var interfaces = []
 try {
-  package = require('../../package.json');
-  interfaces = package.waterlineAdapter.interfaces;
-} catch(e) {
+  package = require('../../package.json')
+  interfaces = package.waterlineAdapter.interfaces
+} catch (e) {
   throw new Error(
     '\n' +
-    'Could not read supported interfaces from `waterlineAdapter.interfaces`' + '\n' +
-    'in this adapter\'s `package.json` file ::' + '\n' +
-    util.inspect(e)
-  );
+      'Could not read supported interfaces from `waterlineAdapter.interfaces`' +
+      '\n' +
+      "in this adapter's `package.json` file ::" +
+      '\n' +
+      util.inspect(e)
+  )
 }
 
-log.info('Testing `' + package.name + '`, a Sails/Waterline adapter.');
-log.info('Running `waterline-adapter-tests` against ' + interfaces.length + ' interfaces...');
-log.info('( ' + interfaces.join(', ') + ' )');
-console.log();
-log('Latest draft of Waterline adapter interface spec:');
-log('http://links.sailsjs.org/docs/plugins/adapters/interfaces');
-console.log();
+log.info('Testing `' + package.name + '`, a Sails/Waterline adapter.')
+log.info(
+  'Running `waterline-adapter-tests` against ' +
+    interfaces.length +
+    ' interfaces...'
+)
+log.info('( ' + interfaces.join(', ') + ' )')
+console.log()
+log('Latest draft of Waterline adapter interface spec:')
+log('http://links.sailsjs.org/docs/plugins/adapters/interfaces')
+console.log()
 
-var mssql = require('mssql');
+const sql = require('mssql')
 
-console.log('Dropping any existing tables...');
-
-const pool = new mssql.ConnectionPool({
+var config = {
   user: 'sa',
   password: 'Password12!',
   server: 'localhost\\SQL2017',
   database: 'sails-mssqlserver',
-  port: 1433,
-  connectionTimeout: 30000,
-  pool: {
-    max: 10,
-    min: 0,
-    idleTimeoutMillis: 30000
+  port: 1434
+}
+
+
+sql.connect(
+  config,
+  err => {
+    // ... error checks
+
+    // Query
+    console.log('Dropping any existing tables...')
+
+    if (err && err.name.indexOf('ConnectionError') == 0) {
+      console.log('Connection to DB not implemented yet.', err)
+      return
+    } else if (err) {
+      throw err
+    }
+
+    new sql.Request().query(
+      [
+        "while(exists(select 1 from INFORMATION_SCHEMA.TABLE_CONSTRAINTS where CONSTRAINT_TYPE='FOREIGN KEY'))",
+        'begin',
+        'declare @sql nvarchar(2000)',
+        "SELECT TOP 1 @sql=('ALTER TABLE ' + TABLE_SCHEMA + '.[' + TABLE_NAME + '] DROP CONSTRAINT [' + CONSTRAINT_NAME + ']')",
+        'FROM information_schema.table_constraints',
+        "WHERE CONSTRAINT_TYPE = 'FOREIGN KEY'",
+        'exec (@sql)',
+        'PRINT @sql',
+        'end;',
+        "while(exists(select 1 from INFORMATION_SCHEMA.TABLES where TABLE_NAME != '__MigrationHistory'))",
+        'begin',
+        "SELECT TOP 1 @sql=('DROP TABLE ' + TABLE_SCHEMA + '.[' + TABLE_NAME + ']')",
+        'FROM INFORMATION_SCHEMA.TABLES',
+        "WHERE TABLE_NAME != '__MigrationHistory'",
+        'exec (@sql)',
+        'PRINT @sql',
+        'end'
+      ].join(' '),
+      function(err, results) {
+        if (err) throw err
+        console.log('Starting test runner...')
+
+        new TestRunner({
+          mocha: {
+            reporter: 'spec',
+            timeout: 300 * 1000
+          },
+
+          // Load the adapter module.
+          adapter: Adapter,
+
+          // ADD YOUR CONFIG HERE
+          config: {
+            timeout: 300 * 1000,
+            pool: {
+              max: 100
+            },
+            user: 'sa',
+            password: 'Password12!',
+            server: 'localhost\\SQL2017',
+            database: 'sails-mssqlserver',
+            scehma: false
+          },
+
+          failOnError: true,
+
+          // The set of adapter interfaces to test against.
+          // (grabbed these from this adapter's package.json file above)
+          interfaces: interfaces
+
+          // Most databases implement 'semantic' and 'queryable'.
+          //
+          // As of Sails/Waterline v0.10, the 'associations' interface
+          // is also available.  If you don't implement 'associations',
+          // it will be polyfilled for you by Waterline core.  The core
+          // implementation will always be used for cross-adapter / cross-connection
+          // joins.
+          //
+          // In future versions of Sails/Waterline, 'queryable' may be also
+          // be polyfilled by core.
+          //
+          // These polyfilled implementations can usually be further optimized at the
+          // adapter level, since most databases provide optimizations for internal
+          // operations.
+          //
+          // Full interface reference:
+          // https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md
+        })
+      }
+    )
+
   }
-})
+)
 
-pool.connect(err => {
-  if (err && err.name.indexOf('ConnectionError') == 0) {
-    console.log('Connection to DB not implemented yet.', err)
-    return
-  } 
-  else if (err) {
-    throw err
-  }
-
-  new mssql.Request(connection).query([
-    'while(exists(select 1 from INFORMATION_SCHEMA.TABLE_CONSTRAINTS where CONSTRAINT_TYPE=\'FOREIGN KEY\'))',
-    'begin',
-    'declare @sql nvarchar(2000)',
-    'SELECT TOP 1 @sql=(\'ALTER TABLE \' + TABLE_SCHEMA + \'.[\' + TABLE_NAME + \'] DROP CONSTRAINT [\' + CONSTRAINT_NAME + \']\')',
-    'FROM information_schema.table_constraints',
-    'WHERE CONSTRAINT_TYPE = \'FOREIGN KEY\'',
-    'exec (@sql)',
-    'PRINT @sql',
-    'end;',
-    'while(exists(select 1 from INFORMATION_SCHEMA.TABLES where TABLE_NAME != \'__MigrationHistory\'))',
-    'begin',
-    'SELECT TOP 1 @sql=(\'DROP TABLE \' + TABLE_SCHEMA + \'.[\' + TABLE_NAME + \']\')',
-    'FROM INFORMATION_SCHEMA.TABLES',
-    'WHERE TABLE_NAME != \'__MigrationHistory\'',
-    'exec (@sql)',
-    'PRINT @sql',
-    'end'
-  ].join(' '), function (err, results) {
-    if(err) throw err;
-    console.log('Starting test runner...');
-
-    new TestRunner({
-
-      mocha: {
-        reporter: 'spec',
-        timeout: 300 * 1000
-      },
-
-      // Load the adapter module.
-      adapter: Adapter,
-
-      // ADD YOUR CONFIG HERE
-      config: {
-        timeout: 300 * 1000,
-        pool: {
-          max: 100
-        },
-        user: 'sa',
-        password: 'Password12!',
-        server: 'localhost\\SQL2014',
-        database: 'sails-mssqlserver',
-        port: 1434
-      },
-
-      failOnError: true,
-
-      // The set of adapter interfaces to test against.
-      // (grabbed these from this adapter's package.json file above)
-      interfaces: interfaces
-
-      // Most databases implement 'semantic' and 'queryable'.
-      //
-      // As of Sails/Waterline v0.10, the 'associations' interface
-      // is also available.  If you don't implement 'associations',
-      // it will be polyfilled for you by Waterline core.  The core
-      // implementation will always be used for cross-adapter / cross-connection
-      // joins.
-      //
-      // In future versions of Sails/Waterline, 'queryable' may be also
-      // be polyfilled by core.
-      //
-      // These polyfilled implementations can usually be further optimized at the
-      // adapter level, since most databases provide optimizations for internal
-      // operations.
-      //
-      // Full interface reference:
-      // https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md
-    });
-  });
+sql.on('error', err => {
+  // ... error handler
+  console.error('Error in SQL:', err)
 })
 
 /**

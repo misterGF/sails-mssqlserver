@@ -12,3 +12,4 @@ npm-debug.log
 .npmignore
 build.log
 package-lock.json
+.mssql.json

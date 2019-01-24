@@ -7,7 +7,7 @@ var Adapter = require('../../')
 describe('registerCollection', function () {
   it('should not hang or encounter any errors', function (done) {
     Adapter.registerCollection({
-      identity: 'foo'
+      identity: 'mssqlserver'
     }, done)
   })
 
